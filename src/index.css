@@ -1,0 +1,29 @@
+*{
+  align-items: center;
+  text-align: center;
+  margin: .5cm;
+}
+
+input[type='number']{
+  display: flex;
+  margin: auto;
+  width: 20%;
+  height: 10%;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #8d8c8c;
+  color: rgb(197, 56, 56);
+}
+
+.request{
+  background: url('./w4.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 12cm;
+  margin: 0;    
+
+}

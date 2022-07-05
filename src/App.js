@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import './App.css';
 import Form from './form'
-import Form2 from './form2'
+
 
 
 //use two components to fetch data from user and do the api call,then map that component with the api result 

@@ -40,10 +40,10 @@ class App extends Component {
         return ( 
         <div className="App">
           <div className="App">
-            <h1>HOURLY WEATHER FORECAST APP</h1>
-            <small>please use vaues in the range of 0.00 - 00.00 , for app testing purposes</small>
+            <h1>HOURLY WEATHER FORECAST APP</h1>            
             <hr />
             <h4>Enter the lattitude and the longitude values below...</h4>
+            <small>please use vaues in the range of 0.00 - 00.00 , for app testing purposes</small>
             <div className="request"> 
 
               <div className="mb-3">

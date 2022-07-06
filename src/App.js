@@ -83,7 +83,7 @@ class App extends Component {
               console.log("This is the longitude value",this.state.lon);
               this.componentDidMount();
 
-            }}>Submit</button>           
+            }}>Get weather updates</button>           
             
                              
                              

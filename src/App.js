@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import './App.css';
 
 //use two components to fetch data from user and do the api call,then map that component with the api result 
-//in the response section
 
 class App extends Component {  
   constructor(props){
@@ -14,11 +13,12 @@ class App extends Component {
       lon:0,
     }    
   }  
-
+  
+  //Component did mount wil carry out the API call
   componentDidMount(){ 
     var x = this.state.lat; // The lattitude value
     var y = this.state.lon; // The longitude value           
-     //The longitude value
+    
     // fetch("https://api.open-meteo.com/v1/forecast?latitude="+x+"&longitude="+y+"&hourly=temperature_2m")
     fetch("https://api.open-meteo.com/v1/forecast?latitude="+x+"&longitude="+y+"&hourly=temperature_2m,relativehumidity_2m,cloudcover_mid,windspeed_120m")    
     .then(res=>res.json())
@@ -33,10 +33,11 @@ class App extends Component {
 
   render() {       
 
-    var {isloaded,items}=this.state;   
+    var {isloaded,items}=this.state;   //The flag to monitor if the API has been loaded
     if(!isloaded){
       return <div>Loading...</div>
     }else{
+      //returns the form having the form and the bootstrap modal
         return ( 
         <div className="App">
           <div className="App">

@@ -1,8 +1,5 @@
 import React,{Component} from 'react';
 import './App.css';
-import Form from './form'
-
-
 
 //use two components to fetch data from user and do the api call,then map that component with the api result 
 //in the response section
@@ -12,15 +9,16 @@ class App extends Component {
     super(props);
     this.state={
       items:[],
-      isloaded:false,
-    }
-  }
+      isloaded:false,     
+      lat:0,
+      lon:0,
+    }    
+  }  
 
-
-  componentDidMount(){
-    //fetch('https://jsonplaceholder.typicode.com/users')    
-    var x = 67.9;
-    var y = 56.8;
+  componentDidMount(){ 
+    var x = this.state.lat; // The lattitude value
+    var y = this.state.lon; // The longitude value           
+     //The longitude value
     // fetch("https://api.open-meteo.com/v1/forecast?latitude="+x+"&longitude="+y+"&hourly=temperature_2m")
     fetch("https://api.open-meteo.com/v1/forecast?latitude="+x+"&longitude="+y+"&hourly=temperature_2m,relativehumidity_2m,cloudcover_mid,windspeed_120m")    
     .then(res=>res.json())
@@ -33,7 +31,7 @@ class App extends Component {
   }
 
 
-  render() {    
+  render() {       
 
     var {isloaded,items}=this.state;   
     if(!isloaded){
@@ -46,8 +44,50 @@ class App extends Component {
             <hr />
             <h4>Enter the lattitude and the longitude values below...</h4>
             <div className="request"> 
-            <Form />       
+
+              <div className="mb-3">
+                <label className="form-label">Enter the latitude</label>
+                <input id="lat"
+                onChange={()=>{                  
+                  var x = document.getElementById("lat").value;                  
+                  this.setState({                    
+                    lat:x
+                  })}}
+                ></input> 
+
+              </div>
+              <div className="mb-3">
+                
+                <label className="form-label">Enter the longitude</label>
+                <input id="lon"
+                onChange={()=>{                  
+                  var y = document.getElementById("lon").value;                  
+                  this.setState({                    
+                    lon:y
+                  })}}
+                ></input>
+              </div> 
+            
+            <button type='submit' className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" 
+              onClick={()=>{
+              var x = document.getElementById("lat").value;
+              var y = document.getElementById("lon").value;
+              console.log(x)
+              console.log(y)
+              // this.setState({
+              //   lat:x,
+              //   lon:y
+              // })
+              console.log("This is the latitude value",this.state.lat);
+              console.log("This is the longitude value",this.state.lon);
+              this.componentDidMount();
+
+            }}>Submit</button>           
+            
+                             
+                             
             </div> 
+            {/* The response section, to render results from the api call */}
             <div className="response">
             <div className="show">          
            
@@ -79,9 +119,11 @@ class App extends Component {
             </div>
          </div>       
       </div>
-    );  //}         
+    );
+  //}         
     
   }}}
+
 
 export default App;
 

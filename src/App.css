@@ -5,6 +5,9 @@ error{
   font-size:10px;
   color: red;
 }
+small{
+  color: red;
+}
 
 .App-logo {
   height: 40vmin;

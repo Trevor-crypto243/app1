@@ -1,2 +1,2 @@
-# app1
+# Weather forecasting app
  test 2
